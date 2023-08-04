@@ -159,7 +159,7 @@
         <?php
                 while($row=mysqli_fetch_assoc($result))
                 {
-                    $_SESSION['facid'] =$row['facultyID'];
+                    // $_SESSION['facid'] =$row['facultyID'];
             ?>
             <div class="col-lg-6 col-xl-6">
                 <!-- <div class="card mb-5 mb-xl-3" style="background:lightblue;"> -->
@@ -190,11 +190,11 @@
                             </li>
                             <li>
                                 <?php
-                                $var=$row['facultyID'];
-                                echo "<form action='faculty_page.php' method='POST'>
-                                    <button class='btnf' name='ID' value='$var'>browse projects and publications</button>
-                                </form>"
+                                    $var=$row['facultyID'];
                                 ?>
+                                <form action='faculty_page.php' method='POST'>
+                                    <button class='btnf' name='ID' value=<?php echo $var?>>browse projects and publications</button>
+                                </form>
                             
                             </li>
                         </ul> 

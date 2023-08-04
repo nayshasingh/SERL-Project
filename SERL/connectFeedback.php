@@ -54,7 +54,6 @@
                 return false;
             }
         }
-
             $sql="INSERT INTO feedback(name,type,email,feedback) VALUES ('$name', '$type', '$email','$feedback')";
             if(sendMail() && $conn->query($sql) == true ){
                 echo '<script>alert("Feedback submitted!");setTimeout(()=>{window.location.replace("index.php");},500);</script>';

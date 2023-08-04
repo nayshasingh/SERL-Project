@@ -1,6 +1,11 @@
 <?php
+session_start();
+if(!isset($_SESSION['uid']))
+{
+    header("location: login.html");
+}
 $conn=mysqli_connect('localhost','root','','serl') or die("Connection failed" .mysqli_connect_error());
-$ID = $_GET['ID'];
+$ID = $_SESSION['uid'];
 $sql="SELECT count(*) FROM researcher WHERE researcherID='$ID'";
 $sql2="SELECT * FROM researcher WHERE researcherID='$ID'";
 $query=mysqli_query($conn,$sql);
@@ -38,7 +43,7 @@ if($row[0]==1){
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="logout.php">Home</a></li>
               <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li> -->
               <li class="breadcrumb-item active" aria-current="page">Profile</li>
             </ol>

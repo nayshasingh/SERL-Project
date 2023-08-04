@@ -1,7 +1,11 @@
 <?php 
     // session_start();
     // $temp=$_SESSION['uid'];
-    
+    session_start();
+    if(!isset($_SESSION['uid']))
+    {
+        header("location: login.html");
+    }
     
     if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit3'])){
         $conn=mysqli_connect('localhost','root','','serl') or die("Connection failed" .mysqli_connect_error());
